@@ -50,11 +50,11 @@
 
 <p>For the next features you should create the preference in <b>about:config</b> page.</p>
 <ul>
-<li>New tab shape<li>
+<li>New tab shape</li>
 <table><tr>
     <td width="320px">floorpgx.tab-shapes</td>
     <td width="50px">true</td></tr>
-</table>
+</table></ul>
 
 the lines 13-17 of <code>user.js</code> has the types of shapes for the tabs, choose the one you like and replace "false" with "true". Be careful to only have one in "true".
 
