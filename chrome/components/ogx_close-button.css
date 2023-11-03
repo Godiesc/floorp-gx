@@ -1,0 +1,21 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text.
+   https://github.com/Godiesc/firefox-gx */
+
+/*"Botón de cerrar pestaña" en windows y linux */
+
+:is(#TabsToolbar) .close-icon {
+    width: 15px !important;
+    height: 15px !important;
+}
+
+.tab-close-button {
+    list-style-image: url('../images/close.svg') !important;
+    padding: 3px !important;
+    border-radius: 0px !important;
+    margin-inline-end: -2px !important;
+}
+
+.tab-close-button:hover {
+   background-color: var(--contrast-color, var(--lwt-accent-color)) !important;
+   fill: var(--identity-tab-color, var(--general-color)) !important;
+}
