@@ -119,7 +119,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
 
 /* ########################################## Selected Tab - Box Shadow ########################################## */
 
-@supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
+@supports -moz-bool-pref("floorpgx.tab-shapes") {
   #TabsToolbar {
     --uc-tab-shadow-color: var( --general-color, var(--lwt-tab-line-color, var(--tabs-border-color, rgba(128, 128, 142, 0.9)))  );
     --uc-tab-shadow-color-bundle: var(--general-color, var(--lwt-tab-line-color, rgba(128, 128, 142, 0.9)));
@@ -171,7 +171,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
   }
 }
 /*= Selected Tab - Bottom Rounded Corner =====================================*/
-@supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
+@supports -moz-bool-pref("floorpgx.tab-shapes") {
   @supports not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.wave") {
     @supports not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.australis") {
       @supports not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome") {
@@ -203,7 +203,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
               background-repeat: no-repeat;
               background-position-y: bottom;
             }
-            @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
+            @supports -moz-bool-pref("floorpgx.tab-shapes") {
               :root:not([customizing="true"]) .tabbrowser-tab .tab-background::before,
               :root:not([customizing="true"]) .tabbrowser-tab .tab-background::after {
                 content: "";
@@ -222,7 +222,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
               fill: var(--tab-selected-bgcolor, var(--toolbar-bgcolor));
               stroke: var(--tab-line-color, var(--tabs-border-color, rgba(128, 128, 142, 0.9)));
             }
-            @supports not -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
+            @supports not -moz-bool-pref("floorpgx.tab-shapes") {
               :root:not([customizing="true"]) .tabbrowser-tab[visuallyselected] .tab-background::before,
               :root:not([customizing="true"]) .tabbrowser-tab[visuallyselected] .tab-background::after {
                 content: "";
@@ -243,7 +243,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
               .tab-background::after {
               fill: color-mix(in srgb, var(--identity-icon-color, var(--general-color)) 25%, transparent) !important;
             }
-            @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
+            @supports -moz-bool-pref("floorpgx.tab-shapes") {
               :root:not([customizing="true"])
                 .tabbrowser-tab[multiselected]:not([visuallyselected])
                 .tab-background::before,
@@ -381,7 +381,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
         --uc-margin-left-newtab: 8px;
       }
     }
-    @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
+    @supports -moz-bool-pref("floorpgx.tab-shapes") {
       .tabbrowser-tab {
         padding-inline: 0 !important;
         overflow-clip-margin: var(--uc-tab-corner-half-size) !important;
@@ -411,7 +411,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
       background-position: top, right top;
       background-attachment: scroll, fixed;
     }
-    @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
+    @supports -moz-bool-pref("floorpgx.tab-shapes") {
       .tabbrowser-tab .tab-background::before,
       .tabbrowser-tab .tab-background::after {
         content: "";
@@ -446,7 +446,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
       height: calc(var(--tab-height-personal) + 2px) !important;        /* My edit */
       width: calc(var(--uc-tab-corner-size) + 2px) !important;          /* My edit */
     }
-    @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
+    @supports -moz-bool-pref("floorpgx.tab-shapes") {
       .tabbrowser-tab[multiselected]:not([visuallyselected]) .tab-background::before,
       .tabbrowser-tab[multiselected]:not([visuallyselected]) .tab-background::after {
         fill: var(--uc-multiselected-tab-bgcolor);
@@ -462,7 +462,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
     }
     @media (-moz-gtk-csd-available) {
       /* Fill color for GTK */
-      @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
+      @supports -moz-bool-pref("floorpgx.tab-shapes") {
         :root:not([lwtheme="true"]) .tabbrowser-tab {
           --uc-tab-shadow-color: rgba(0, 0, 0, 0.4);
         }
@@ -479,7 +479,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
         --uc-tab-corner-bgimage: linear-gradient(var(--toolbar-non-lwt-bgcolor), var(--toolbar-non-lwt-bgcolor));
         fill: rgba(255, 255, 255, 0.075);
       }
-      @supports not -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
+      @supports not -moz-bool-pref("floorpgx.tab-shapes") {
         :root:not([lwtheme="true"]) .tabbrowser-tab[visuallyselected] .tab-background::before,
         :root:not([lwtheme="true"]) .tabbrowser-tab[visuallyselected] .tab-background::after {
           fill: rgba(255, 255, 255, 0.15);
