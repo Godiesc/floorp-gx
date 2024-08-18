@@ -8,7 +8,7 @@
     scrollbar-width: none !important;
   
     --padding-top-left-sidebar: 102px !important;
-    --padding-bottom-left-sidebar: 96px !important;
+    --padding-bottom-left-sidebar: 66px !important;
     --height-left-sidebar: calc(100vh - 1px + var(--toolbar-height-personal) + var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px)) !important;
     --toolbar-bgcolor: #10101900 !important;
     
@@ -42,6 +42,15 @@
     color: var(--general-color) !important;
     
     z-index: 0 !important;
+}
+
+/* Gradient line when bookmarks-bar is visible */
+
+:root:not([invisibleBMS]):has(#PersonalToolbar[collapsed="false"]) #sidebar-select-box {
+    border-image: linear-gradient(to bottom, 
+                  transparent calc(var(--tab-height-personal) + var(--toolbar-height-personal) + var(--windowed-top-padding, 0px) - 35px), 
+                  var(--general-color) calc(var(--tab-height-personal) + var(--toolbar-height-personal) + var(--windowed-top-padding, 0px) - 35px), 
+                  var(--button-active-bgcolor) 42%, var(--lwt-frame) 84%) 1 !important;
 }
 
 /* Linea gradiente -compact mode- */
@@ -177,190 +186,149 @@ splitter {
    ########################################### ------------------------------------------------------------ ########################################### */
 
 :root:not([invisibleBMS]) {
-    --uc-vertical-toolbar-width: var(--my-vertical-toolbar-width) !important;               /* Nuevo tamaño sidebar */
-    --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;            /* Nuevo tamaño botón "Menú" */
+    --uc-vertical-toolbar-width: var(--my-vertical-toolbar-width) !important;                       /* Nuevo tamaño sidebar */
+    --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;                    /* Nuevo tamaño botón "Menú" */
     --margin-left-icons-personal: calc(var(--my-vertical-toolbar-width) / 2 - 16px) !important;     /* Nuevo margen-left de íconos del -menu- */
     --margin-right-icons-personal: 8px !important;                                                  /* Nuevo margen-right de íconos del -menu- */
     }
 
-/* Iconos centrados menu [open] */
-        
-:root:not([chromehidden~="toolbar"],[invisibleBMS])[sizemode="maximized"] #appMenu-popup .subviewbutton:not(.subviewbutton-iconic, .toolbarbutton-text, [checked="true"])> .toolbarbutton-icon,                       /* Mayoría de botones */
-:root:not([chromehidden~="toolbar"],[invisibleBMS])[sizemode="maximized"] #appMenu-popup #appMenu-fxa-status2[fxastatus="signedin"] #appMenu-fxa-label2::before, #appMenu-popup #fxa-manage-account-button::before,   /* Account icon signedin */
-:root:not([chromehidden~="toolbar"],[invisibleBMS])[sizemode="maximized"] #appMenu-popup #appMenu-fxa-status2:not([fxastatus="signedin"])::before,                                                                    /* Account icon not signedin */
-:root:not([chromehidden~="toolbar"],[invisibleBMS])[sizemode="maximized"] #appMenu-popup #appMenu-zoom-controls:before, #appMenu-popup .syncNowBtn{           
-    width: 16px; height: 16px;
-    margin-inline-start: var(--margin-left-icons-personal) !important;
-    margin-inline-end: var(--margin-right-icons-personal) !important;
-}
-    
-:root:not([chromehidden~="toolbar"],[invisibleBMS])[sizemode="maximized"] #appMenu-popup .subviewbutton.subviewbutton-iconic:not(.subviewbutton-back) image{
-    margin-inline-start: var(--margin-left-icons-personal) !important;
-}
-    
-/* Quitar label -Menu- del menú not [open] */
-
 @media (-moz-platform: windows), (-moz-platform: linux) {
+    
+/* Remove 'menu' label when is not 'open' */
+
     :root:not([chromehidden~="toolbar"],[invisibleBMS]) #PanelUI-menu-button:not([open])>stack::after {
         content: none !important;
     }
 
-    :root:not([chromehidden~="toolbar"], [invisibleBMS]):is([sizemode="normal"], [sizemode="fullscreen"]) #PanelUI-menu-button:is([open])>stack::after {
+    :root:not([chromehidden~="toolbar"],[invisibleBMS]):is([sizemode="normal"],[sizemode="fullscreen"]) #PanelUI-menu-button:is([open])>stack::after {
         content: none !important;
     }
 
-/* Hacer el botón más ancho en el menú [open] */
+/* Make button wider when menu is 'open' */
 
-    :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"], [invisibleBMS]):is([sizemode="maximized"]) #PanelUI-menu-button[open]>stack {
+    :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"],[invisibleBMS]):is([sizemode="maximized"]) #PanelUI-menu-button[open]>stack {
         --padding-left-tab: 78px !important;
         max-width: var(--padding-left-tab) !important;
         min-width: var(--padding-left-tab) !important;
         align-items: center !important;
     }}
 
-@media (-moz-platform: linux) {
-    :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"], [invisibleBMS]):is([sizemode="maximized"]) #PanelUI-menu-button[open]>stack {
-        --padding-left-tab: 82px !important;
+    @media (-moz-platform: linux) {
+        :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"],[invisibleBMS]):is([sizemode="maximized"]) #PanelUI-menu-button[open]>stack {
+            --padding-left-tab: 82px !important;
+        }
     }
-}
 
-@media (-moz-platform: windows), (-moz-platform: linux) {
-    :root:is([sizemode="maximized"]):not([invisibleBMS]) #appMenu-popup {
-        --padding-left-tab: 78px !important;
+    @media (-moz-platform: windows), (-moz-platform: linux) {
+        :root:is([sizemode="maximized"]):not([invisibleBMS]) #appMenu-popup {
+            --padding-left-tab: 78px !important;
+        }
     }
-}
 
-@media (-moz-platform: linux) {
-    :root:is([sizemode="maximized"]):not([invisibleBMS]) #appMenu-popup {
-        --padding-left-tab: 82px !important;
+    @media (-moz-platform: linux) {
+        :root:is([sizemode="maximized"]):not([invisibleBMS]) #appMenu-popup {
+            --padding-left-tab: 82px !important;
+        }
     }
-}
 
-/* Tamaño nuevo botón Menú */
-@media (-moz-platform: windows), (-moz-platform: linux) {
-    :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"], [invisibleBMS]) #PanelUI-menu-button, 
+/* New menu size */
+    
+    @media (-moz-platform: windows), (-moz-platform: linux) {
+    :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"],[invisibleBMS],[customizing="true"]) #PanelUI-menu-button,
     :root[sizemode="maximized"]:not([invisibleBMS]) #appMenu-popup {
         --tab-height-personal: 40px !important;
     }
 
-/* Botón Menú [open] no muy grande */
+/* Smaller menu size when 'open' */
 
-:root:not([chromehidden~="toolbar"], [invisibleBMS])[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
-    padding-top: calc(var(--tab-height-personal) - 10px) !important;
-    z-index: 2 !important;
+    :root:not([chromehidden~="toolbar"],[invisibleBMS])[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
+        padding-top: calc(var(--tab-height-personal) - 10px) !important;
+        z-index: 2 !important;
     }
 
-
-:root:not([chromehidden~="toolbar"], [invisibleBMS])[sizemode="maximized"] #appMenu-popup {
-    clip-path: polygon(0% 0%, 0% 100%, 1% 53%, 0 4px, var(--padding-left-tab) 4px,
-               var(--padding-left-tab) calc(var(--tab-height-personal) - 4px), 0 calc(var(--tab-height-personal) - 4px),
-               0 100%, 100% 100%, 100% 0%);
-    }
-
-/* Logo más grande */
+/* Bigger logo */
 
     :root:not([chromehidden~="toolbar"],[invisibleBMS]) #PanelUI-menu-button image {
         min-height: 20px !important;
         min-width: 20px !important;
     }
     
-/* Logo alineado */
+/* Aligned logo */
     
-    :root:not([chromehidden~="toolbar"], [invisibleBMS]) #PanelUI-menu-button image {
+    :root:not([chromehidden~="toolbar"],[invisibleBMS]) #PanelUI-menu-button image {
         margin-inline-start: calc(var(--margin-left-icons-personal) - 2px) !important;
     }
     
-/* Label Menú */
+/* Menu label */
     
-    :root:not([chromehidden~="toolbar"], [invisibleBMS]) #PanelUI-menu-button>stack::after {
+    :root:not([chromehidden~="toolbar"],[invisibleBMS]) #PanelUI-menu-button>stack::after {
         padding-inline-start: calc(var(--margin-right-icons-personal) - 2px) !important;
     }
 
-/* Menu :hover */
+/* Menu when 'hover' */
 
-    :root:not([chromehidden~="toolbar"], [invisibleBMS]) #PanelUI-menu-button:not([open]):hover>.toolbarbutton-badge-stack {
+    :root:not([chromehidden~="toolbar"],[invisibleBMS]) #PanelUI-menu-button:not([open]):hover>.toolbarbutton-badge-stack {
         background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
-    }
-}
-
-/* ############################################################## Auto hide bookmark-bar ############################################################## 
-   ########################################### ------------------------------------------------------------ ########################################### */
-
-/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/autohide_bookmarks_toolbar.css */
-
-:root:not([invisibleBMS]) #PersonalToolbar{
-  --uc-bm-height: 19px; /* Might need to adjust if the toolbar has other buttons */
-  --uc-bm-padding: 4px; /* Vertical padding to be applied to bookmarks */
-  --uc-autohide-toolbar-delay: 0ms; /* The toolbar is hidden after 0.6s */
-  
-  /* 0deg = "show" ; 90deg = "hide" ;  Set the following to control when bookmarks are shown */
-  --uc-autohide-toolbar-focus-rotation: 90deg; /* urlbar is focused */
-  --uc-autohide-toolbar-hover-rotation: 0deg; /* cursor is over the toolbar area */
-}
-
-@media (-moz-platform: linux) {
-:root:not([invisibleBMS]) #PersonalToolbar{
-  --uc-bm-height: 21px; /* Might need to adjust if the toolbar has other buttons */
-  --uc-bm-padding: 4px; /* Vertical padding to be applied to bookmarks */
-  --uc-autohide-toolbar-delay: 0ms; /* The toolbar is hidden after 0.6s */
     }}
+    
+/* 'Update available' banner */
+    
+    .panel-banner-item::before{
+        padding-inline-start: calc(var(--margin-left-icons-personal) - 2px) !important;
+    }
 
-:root:not([invisibleBMS]) #PersonalToolbar:not([customizing]){
-  position: relative;
-  margin-bottom: calc(-1px - var(--uc-bm-height) - 2 * var(--uc-bm-padding));
-  transform: rotateX(90deg);  /* (90deg) to show on hover -- (0deg) to show with ctl+shif+B */
-  transform-origin: top;
-  transition: transform 135ms linear var(--uc-autohide-toolbar-delay) !important;
-  z-index: 1;
-  /* The following properties should allow the themes with trasparent toolbars to work */
-  background-repeat: no-repeat,no-repeat,var(--lwt-background-tiling);
-  --uc-bg-y: calc(-2 * (var(--tab-block-margin) + var(--toolbarbutton-inner-padding) + var(--toolbarbutton-outer-padding)) - var(--tab-min-height) - 16px - var(--bookmark-block-padding));
-  background-position: top left,top left,var(--lwt-background-alignment,top left);
-  background-position-y:top,top,var(--uc-bg-y),var(--uc-bg-y),var(--uc-bg-y);
-  background-image: var(--toolbar-bgimage), linear-gradient(var(--toolbar-bgcolor),var(--toolbar-bgcolor)),var(--lwt-header-image,var(--lwt-additional-images)) !important;
-  box-shadow: 0 1px 0 0 var(--lwt-frame)/*, 0 -1px 0 0 var(--lwt-frame) */ !important;
-}
-
-:root:not([invisibleBMS]) #PlacesToolbarItems > .bookmark-item,
-:root:not([invisibleBMS]) #OtherBookmarks,
-:root:not([invisibleBMS]) #PersonalToolbar > #import-button{
-  padding-block: var(--uc-bm-padding) !important;
-}
-
-:root:not([invisibleBMS]) #nav-bar:focus-within + #PersonalToolbar{
-  transition-delay: 100ms !important;
-  transform: rotateX(var(--uc-autohide-toolbar-focus-rotation,0));
-}
-
-:root:not([invisibleBMS]) #navigator-toolbox:hover > #PersonalToolbar{
-  transition-delay: 100ms !important;
-  transform: rotateX(var(--uc-autohide-toolbar-hover-rotation,0));
-}
-
-:root:not([invisibleBMS]) #navigator-toolbox:hover > #nav-bar:focus-within + #PersonalToolbar {  
-  transform: rotateX(0);
-}
-
-/* imagen en la barra lateral en tema con imágenes */
-@media (prefers-color-scheme: dark){
-    :root:not([chromehidden~="toolbar"]):is([lwtheme-image], [style*="--lwt-additional-images"]) #PersonalToolbar{
-        --toolbar-bgcolor: #10101990 !important;
+    
+@media (-moz-platform: windows){
+    
+    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
+        clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0 3px, calc(var(--padding-left-tab) + 4px) 3px,
+                   calc(var(--padding-left-tab) + 4px) calc(var(--tab-height-personal) - 3px), 0 calc(var(--tab-height-personal) - 3px),
+                   0 100%, 100% 100%, 100% 0%);
     }
 }
-@media (prefers-color-scheme: light){
-    :root:not([chromehidden~="toolbar"]):is([lwtheme-image], [style*="--lwt-additional-images"]) #PersonalToolbar{
-        --toolbar-bgcolor: #f9f9f995 !important;
+   
+@media (-moz-platform: linux){
+    
+    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
+        clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0 0px, calc(var(--padding-left-tab) - 1px) 0px,
+                   calc(var(--padding-left-tab) - 1px) calc(var(--tab-height-personal) - 6px), 0 calc(var(--tab-height-personal) - 6px),
+                   0 100%, 100% 100%, 100% 0%);
+    }
+    
+    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #PanelUI-menu-button[open]>.toolbarbutton-badge-stack {
+        border-color: var(--general-color) !important;
+        box-shadow: none !important;
     }
 }
-:root:not([chromehidden~="toolbar"]):is([lwtheme-image],[style*="--lwt-additional-images"]) #PersonalToolbar{
-    background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)),
-                      linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), 
-                      var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
-    background-position: left top, right top, right top !important;
-    background-repeat: repeat, repeat, var(--lwt-background-tiling) !important;
-    background-size: var(--display-theme-with-images) !important; 
-    background-position-y: calc(-1px - var(--toolbar-height-personal) - var(--tab-height-personal)) !important;
+
+/* Workspaces in left-sidebar */
+
+#workspacesBmsContent .workspaceButton {
+    width: unset !important;
+    min-width: calc(var(--uc-vertical-toolbar-width,0) - 3px) !important;
+    box-shadow: none !important;
 }
+
+#workspacesBmsContent .workspaceButton[selected="true"] {
+    background-color: transparent !important;
+}
+
+#workspacesBmsContent .workspaceButton .toolbarbutton-icon{
+    min-width: 28px !important;
+    min-height: 28px !important;
+    padding: 6px !important;
+    border-radius: 4px !important;
+    margin-block: -6px !important;
+}
+
+#workspacesBmsContent .workspaceButton[selected="true"] .toolbarbutton-icon{
+    background-color: var(--button-bgcolor) !important;
+}
+
+/* 'Add Button' Hidden When Not On 'Hover' */
+
+#workspacesCreateNewWorkspaceButton:not(:hover), #add-button:not(:hover) { opacity: 0 !important;}
+
 
 /* ################################################### Extensiones ################################################## */
 
@@ -398,33 +366,40 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 }
     
 /* ChatGPT Extension */
-#_87f371f2-66bd-4535-a920-c696f2669122_-BAP { list-style-image: url("../images/logo_chatgpt.svg") !important; }
+#_87f371f2-66bd-4535-a920-c696f2669122_-BAP,
+.webpanel-icon[tooltiptext="https://chat.openai.com/"]{ list-style-image: url("../icons/logo_chatgpt.svg") !important; }
 
 /* Twitch Extension */
-#_d3d2a327-1ae0-4fd6-b732-0844d0b7fd4c_-BAP { list-style-image: url("../images/logo_twitch.svg") !important; }
+#_d3d2a327-1ae0-4fd6-b732-0844d0b7fd4c_-BAP{ list-style-image: url("../icons/logo_twitch.svg") !important; }
 
 /* Messenger Extension */
-#xrst_vardakis_gmail_com-BAP { list-style-image:url("../images/logo_messenger.svg") !important; }
+#xrst_vardakis_gmail_com-BAP { list-style-image:url("../icons/logo_messenger.svg") !important; }
 
 /* Whatsapp Extension */
 #_34a257f3-adfe-460d-b6ca-7dd18d18506b_-BAP,
-#chatwappinsidebar_godie-BAP{ list-style-image: url("../images/logo_whatsapp.svg") !important; }
+#chatwappinsidebar_godie-BAP,
+.webpanel-icon[tooltiptext="Chatwapp"]{ list-style-image: url("../icons/logo_whatsapp.svg") !important; }
 
 /* Telegram Extension */
- #_14390478-b41b-4e29-8307-8a3c714f7783_-BAP{ list-style-image: url("../images/logo_telegram.svg") !important; }
+ #_14390478-b41b-4e29-8307-8a3c714f7783_-BAP,
+.webpanel-icon[tooltiptext="https://web.telegram.org/"]{ list-style-image: url("../icons/logo_telegram.svg") !important; }
 
 /* ublock Extension */
-#ublock0_raymondhill_net-BAP{ list-style-image: url("../images/logo_ublock.svg") !important; }
+#ublock0_raymondhill_net-BAP{ list-style-image: url("../icons/logo_ublock.svg") !important; }
 
 /* Tab-group Extension */
-#panorama-tab-groups_example_com-BAP{ list-style-image: url("../images/logo_grouptabs.svg") !important; }
+#panorama-tab-groups_example_com-BAP{ list-style-image: url("../icons/logo_grouptabs.svg") !important; }
 
 /* Discord Extension */
-#_a16c3799-d903-44e3-b044-a032197f5ef8_-BAP{ list-style-image: url("../images/logo_discord.svg") !important; }
+#_a16c3799-d903-44e3-b044-a032197f5ef8_-BAP,
+.webpanel-icon[tooltiptext="https://discord.com/channels/@me"]{ list-style-image: url("../icons/logo_discord.svg") !important; }
 
 /* Twitter Extension */
-#_3119ae66-3c2f-47e2-b1b1-1c76cb9c4ec1_-BAP{ list-style-image: url("../images/logo_twitter.svg") !important; }
+#_3119ae66-3c2f-47e2-b1b1-1c76cb9c4ec1_-BAP,
+.webpanel-icon[tooltiptext="https://x.com/"]{ list-style-image: url("../icons/logo_twitter.svg") !important; }
 
+/* Translate webpage */
+.webpanel-icon[tooltiptext="https://translate.google.com/"]{ list-style-image: url("../icons/translations.svg") !important; }
     
 /* ########################################### Baner de -actualización disponible- ########################################### */
 
