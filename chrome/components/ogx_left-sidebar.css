@@ -47,6 +47,8 @@
 /* Gradient line when bookmarks-bar is visible */
 
 :root:not([invisibleBMS]):has(#PersonalToolbar[collapsed="false"]) #sidebar-select-box {
+    --padding-top-left-sidebar: 74px !important;
+    --padding-bottom-left-sidebar: 94px !important;
     border-image: linear-gradient(to bottom, 
                   transparent calc(var(--tab-height-personal) + var(--toolbar-height-personal) + var(--windowed-top-padding, 0px) - 35px), 
                   var(--general-color) calc(var(--tab-height-personal) + var(--toolbar-height-personal) + var(--windowed-top-padding, 0px) - 35px), 
@@ -57,8 +59,15 @@
 
     :root[uidensity="compact"]:not([chromehidden~="toolbar"],[invisibleBMS]) #sidebar-select-box {
         border-image: linear-gradient(to bottom, 
-                      transparent calc(var(--tab-height-personal) + var(--toolbar-height-personal) + var(--windowed-top-padding, 0px) - 6px), 
-                      var(--general-color) calc(var(--tab-height-personal) + var(--toolbar-height-personal) + var(--windowed-top-padding, 0px) - 6px), 
+                      transparent calc(var(--tab-height-personal) + var(--toolbar-height-personal) + var(--windowed-top-padding, 0px) - 5px), 
+                      var(--general-color) calc(var(--tab-height-personal) + var(--toolbar-height-personal) + var(--windowed-top-padding, 0px) - 5px), 
+                      var(--button-active-bgcolor) 42%, var(--lwt-frame) 84%) 1 !important;
+    }
+
+    :root[uidensity="compact"]:not([invisibleBMS]):has(#PersonalToolbar[collapsed="false"]) #sidebar-select-box {
+        border-image: linear-gradient(to bottom, 
+                      transparent calc(var(--tab-height-personal) + var(--toolbar-height-personal) + var(--windowed-top-padding, 0px) - 27px), 
+                      var(--general-color) calc(var(--tab-height-personal) + var(--toolbar-height-personal) + var(--windowed-top-padding, 0px) - 27px), 
                       var(--button-active-bgcolor) 42%, var(--lwt-frame) 84%) 1 !important;
     }
 
