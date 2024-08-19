@@ -854,8 +854,6 @@
     }
 
     .wordmark {
-        background: url("../icons/firefox-wordmark-private.svg") no-repeat center center !important;
-        min-width: 170px !important;
         Opacity: var(--logo-wordmark-visibility) !important;
         display: var(--logo-wordmark-display) !important;
     }
