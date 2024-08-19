@@ -8,6 +8,8 @@ user_pref("layout.css.color-mix.enabled", true);
 user_pref("browser.tabs.delayHidingAudioPlayingIconMS", 0);
 user_pref("layout.css.backdrop-filter.enabled", true);
 user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
+user_pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true);
+user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
 
 /* Make it True (only one) the rule with the form of the tab you want */
 user_pref("userChrome.tab.bottom_rounded_corner.wave",          false);
