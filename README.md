@@ -46,18 +46,6 @@
 <li> Open the theme you want to set: <a href="https://color.firefox.com/?theme=XQAAAAJWBAAAAAAAAABBKYhm849SCicxcUfbB38oKRicm6da8pC6zcajvXUxVWhow0XG5K6BSwfdWytulM34uzM3LhuZvlDLNlGrQWcJvtOkdch_qcsPVi0nURBtsyHwEHcPSSdZBUPlEd-vDQwNy7595jjXYHVUDZw8QUFX13YJoRcCcwEU_Dzw709yH1YhjPaZd9vc7d_pmujWu5Wak7eyIlDRz7msPTiOUQAGJk08pOmPGTlzqfqv_zVenGs8n34O-pwABvBa3bniENYtOjF2zG6a1clmNiITgbNcIb_62b4a9Yemcqv7EZHQrCW7zmsAvNSloPy7oL6whNUFLSwbI6Mw5vgLa-hxr68dhAHr1ci0sPBuzH4X2v7tLQo5vKFoUH93wsR4AwL9J43ZXmO9TER1RnH2xUG4I0NvW4qxmJjIat-ppv43c0-fRci1Bj6noY7L9y6poRreLfdGKUXGbKH0FLlRHhs-Bia-AWSh_UuNqz1ILqetzdDWEtHtq2xzUlsh56YTwVUn1MCnjH3ms_M2oZCiP5nz8yVJeLgQPR0F6WFW4nJItk3xtTf9kvzHolSRcToly_Y8OTydALDLYe28MG_QaZDIhDmgJYn8pIdOSufv2FBPdGAxKQXqhhzhzNqEIz5uMi4Jz4ap3D7S1LXeRP_7RdGY"> ⚫ Dark Theme</a> or <a href="https://color.firefox.com/?theme=XQAAAAKEBAAAAAAAAABBKYhm849SCicxcUfbB38oKRicm6da8pvltSB9WkV2c-XLRbQ1Oez1zWXjUJZMfxQUKzTC_-cAsWtnZjVBpeauBmTjVBPomCKsNVE80fvRwY-rJ65R4jKCyUVJUxrFBxVOxkA_Rxvv8TOD070oV0UwW995RyQV9JG-qcd5cFRiuYzkoOoHlCuFUVFtPj-_VSSr0BzL4pxY0IpdnWN0KWhRBmt3bJSbrY2SZACmpn1-skZEU9Pl7kzFVSTXlVU1skeP3kB-2KFUyqRH8Bq3xQ7pvZUvgKGdOF1eMnUXONJyIXPMhZtlrI7Obxy9YLSETBcgDeTe9bxN3BBYKOuF10prltedblsTxpIdNNgEoG2yh9uTnk3c89KqyaYqsomU-bkA9mnxUzpdUGedTZy2yRp9rBdPL4OdYjxI6RX_vOIwZIreHwYr6bE18aOxjMyNAVkKeN7DlxTjNUXmGPcEA0AEAdibEk3tv-OZ9gM8LqxIC0vu9IQNCetSFNPUfnFa2mp-WLBnl9jxa_r-5geKcLuM29u1Tc1YVcfuE0T38PfAh6RtjUPUGW6AhKR5Q25wKre_e_CN-gF5_EA1eeTI_-9-6wg"> ⚪ Light Theme</a>.</li>
 <li> Go to "Advanced colors" tab and change the color in "icons attention", this color will set the accent color to the theme.</li></ol>
 
-## Optional Feature
-
-<p>For the next features you should create the preference in <b>about:config</b> page.</p>
-<ul>
-<li>New tab shape</li>
-<table><tr>
-    <td width="320px">floorpgx.tab-shapes</td>
-    <td width="50px">true</td></tr>
-</table></ul>
-
-the lines 13-17 of <code>user.js</code> has the types of shapes for the tabs, choose the one you like and replace "false" with "true". Be careful to only have one in "true".
-
 ## Personalizar - Customize
 
 <b><i>Personalizaciones Varias - Various customizations</i></b>
