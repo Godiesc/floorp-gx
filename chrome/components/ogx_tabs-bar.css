@@ -107,7 +107,7 @@
 
 /* Non-selected tab :hover background-color */
 
-@media not (-moz-bool-pref:"firefoxgx.tab-shapes") {
+@media not (-moz-bool-pref:"floorpgx.tab-shapes") {
 
     .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected], [multiselected]) {
         background-color: transparent !important;
