@@ -331,7 +331,7 @@ findbar {
 
 /* box, icons box */
 
-#identity-icon-box, #identity-permission-box, #notification-popup-box {
+#identity-icon-box, #identity-permission-box, #notification-popup-box, #splitView-action {
     margin-block: 3px 2px !important;
     margin-inline: 2px !important;
     color: var(--toolbarbutton-icon-fill) !important;
@@ -354,6 +354,12 @@ findbar {
     padding: 3px !important;
     height: 19px !important;
     width: 19px !important;
+}
+
+/* SplitView icon color */
+
+#splitView-image {
+    fill: inherit !important;
 }
 
 /* background-color - when 'hover' - 'active' */
